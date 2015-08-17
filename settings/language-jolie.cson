@@ -1,0 +1,7 @@
+".source.ol":
+  editor:
+    commentStart: "// "
+#".source.ol:not(.comment)":
+#  editor:
+#    increaseIndentPattern: "^.*\\{[^}\"']*$|^\\s*(outputPort||inputPort):\\s*$"
+#    decreaseIndentPattern: "^(.*\\*/)?\\s*\\}.*$|^\\s*(outputPort||inputPort):\\s*$"
