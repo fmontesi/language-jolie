@@ -3,8 +3,7 @@
   "description": "Jolie language support for Atom",
   "version": "0.1.0",
   "engines": {
-    "atom": "*",
-    "node": "*"
+    "atom": "*"
   },
   "homepage": "https://github.com/fmontesi/language-jolie",
   "repository": {

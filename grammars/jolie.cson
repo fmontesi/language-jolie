@@ -1,11 +1,11 @@
+name: "Jolie"
 fileTypes: [
   "ol"
   "iol"
 ]
-scopeName: "source.ol"
+scopeName: "source.jolie"
 foldingStartMarker: "\\{\\s*$"
 foldingStopMarker: "^\\s*\\}"
-name: "Jolie"
 patterns: [
   { include: "#code" }
 ]
