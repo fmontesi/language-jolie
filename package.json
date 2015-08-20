@@ -1,6 +1,6 @@
 {
   "name": "language-jolie",
-  "description": "Jolie support in Atom",
+  "description": "Jolie language support for Atom",
   "version": "0.1.0",
   "engines": {
     "atom": "*",
