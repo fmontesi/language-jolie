@@ -2,15 +2,63 @@ fileTypes: [
   "ol"
   "iol"
 ]
+scopeName: "source.ol"
+foldingStartMarker: "\\{\\s*$"
+foldingStopMarker: "^\\s*\\}"
 #foldingStartMarker: "(\\{\\s*(//.*)?$|^\\s*// \\{\\{\\{)"
 #foldingStopMarker: "^\\s*(\\}|// \\}\\}\\}$)"
 name: "Jolie"
 patterns: [
-#  {
-#    include: "#code"
-#  }
+  { include: "#code" }
 ]
-# 
+repository:
+  code:
+    patterns: [
+      { include: "#comments" },
+      { include: "#strings" },
+      { include: "#keywords_control" },
+      { include: "#keywords_other" },
+      { include: "#operators" }
+    ]
+  comments:
+    begin: "/\\*"
+    end: "\\*/"
+    name: "comment.block.jolie"
+  keywords_other:
+    name: "keyword.other.jolie"
+    match: "\\b(global|constants|cH|instanceof|interface|Protocol|Interfaces|define|Location|Aggregates|inputPort|service|outputPort|OneWay|RequestResponse|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|Redirects|csets|is_defined|embedded|extender|Java|Jolie|JavaScript|courier|forward|install|undef|include|synchronized|throws)\\b"
+  keywords_control:
+    name: "keyword.control.jolie"
+    match: "\\b(if|while|for|foreach|forward)\\b"
+  strings:
+    name: "string.quoted.double.jolie"
+    begin: "\""
+    end: "\""
+    patterns: [
+      {
+        match: "\\\\."
+        name: "constant.character.escape.jolie"
+      }
+    ]
+  # operators:
+
+    #         begin: "\""
+    #         beginCaptures:
+    #           "0":
+    #             name: "punctuation.definition.string.begin.jolie"
+    #         end: "\""
+    #         endCaptures:
+    #           "0":
+    #             name: "punctuation.definition.string.end.jolie"
+    #         name: "string.quoted.double.jolie"
+    #         patterns: [
+    #           {
+    #             match: "\\\\."
+    #             name: "constant.character.escape.jolie"
+    #           }
+    #         ]
+    #       }
+#
 # repository:
 #   code:
 #     patterns: [
@@ -400,5 +448,3 @@ patterns: [
 #         include: "#constants-and-special-vars"
 #       }
 #     ]
-
-scopeName: "source.ol"
