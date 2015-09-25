@@ -9,5 +9,5 @@ Support for the Jolie language in the Atom editor.
 
 Useful stuff that we could import from [the Sublime-Jolie plugin](https://github.com/thesave/sublime-Jolie):
 
-- [] Automatic indentation
-- [] Code Snippets
+- [ ] Automatic indentation
+- [ ] Code Snippets
