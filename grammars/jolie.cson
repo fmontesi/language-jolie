@@ -49,7 +49,7 @@ repository:
     match: "\\b(constants|cH|instanceof|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|is_defined|embedded|extender|courier|forward|install|undef|include|synchronized|throws)\\b"
   keywords_control:
     name: "keyword.control.jolie"
-    match: "\\b(if|while|for|foreach|forward|scope)\\b"
+    match: "\\b(if|while|for|foreach|throw|forward|scope)\\b"
   keywords_types:
     name: "storage.type.jolie"
     match: "\\b(void|bool|int|string|long|double|raw)\\b"
