@@ -52,7 +52,7 @@ repository:
     match: "\\b(if|while|for|foreach|forward|scope)\\b"
   keywords_types:
     name: "storage.type.jolie"
-    match: "\\b(void|int|string|long|double|raw)\\b"
+    match: "\\b(void|bool|int|string|long|double|raw)\\b"
   keywords_modifiers:
     name: "storage.modifiers.jolie"
     match: "\\b(csets|global)\\b"
