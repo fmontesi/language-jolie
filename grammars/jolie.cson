@@ -46,7 +46,7 @@ repository:
     match: "\\b(Location|Protocol|Interfaces|Aggregates|Redirects|Jolie|JavaScript|Java|OneWay|RequestResponse)\\b\\s*:"
   keywords_other:
     name: "keyword.other.jolie"
-    match: "\\b(constants|cH|instanceof|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|is_defined|embedded|extender|courier|forward|install|undef|include|synchronized|throws)\\b"
+    match: "\\b(constants|cH|instanceof|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|is_defined|embedded|extender|courier|forward|install|undef|include|synchronized|throws|throw)\\b"
   keywords_control:
     name: "keyword.control.jolie"
     match: "\\b(if|while|for|foreach|throw|forward|scope)\\b"
