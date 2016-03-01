@@ -36,7 +36,7 @@ repository:
     end: "\\*/"
     name: "comment.block.jolie"
   definitions:
-    match: "\\b(inputPort|outputPort|interface|type|define|service)\\s*(\\w+)\\b"
+    match: "\\b(inputPort|outputPort|interface|type|define|service)\\s+(\\w+)\\b"
     captures: {
       "1": { name: "keyword.other.jolie" },
       "2": { name: "meta.class.identifier.jolie" }
