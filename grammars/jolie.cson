@@ -12,7 +12,8 @@ patterns: [
 repository:
   code:
     patterns: [
-      { include: "#comments" },
+      { include: "#block_comments" },
+      { include: "#line_comments" },
       { include: "#constants_language" },
       { include: "#constants_numeric" },
       { include: "#strings" },
@@ -31,10 +32,14 @@ repository:
   constants_numeric:
     name: "constant.numeric.jolie"
     match: "\\b\\d+\\b"
-  comments:
+  block_comments:
     begin: "/\\*"
     end: "\\*/"
     name: "comment.block.jolie"
+  line_comments:
+    begin: "//"
+    end: "\\n"
+    name: "comment.line.double-slash.jolie"
   definitions:
     match: "\\b(inputPort|outputPort|interface|type|define|service)\\s+(\\w+)\\b"
     captures: {
@@ -49,7 +54,7 @@ repository:
     match: "\\b(constants|cH|instanceof|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|is_defined|embedded|extender|courier|forward|install|undef|include|synchronized|throws|throw)\\b"
   keywords_control:
     name: "keyword.control.jolie"
-    match: "\\b(if|while|for|foreach|throw|forward|scope)\\b"
+    match: "\\b(if|else|while|for|foreach|throw|forward|scope)\\b"
   keywords_types:
     name: "storage.type.jolie"
     match: "\\b(void|bool|int|string|long|double|raw)\\b"
