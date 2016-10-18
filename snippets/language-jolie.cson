@@ -1,0 +1,140 @@
+'.source.jolie':
+  'outputPort':
+    'prefix': 'outputPort'
+    'body': 'outputPort ${1:portName} {\n\tLocation: $2\n\tProtocol: $3\n\tInterfaces: $4\n}'
+  'inputPort':
+    'prefix': 'inputPort'
+    'body': 'inputPort ${1:PortName} {\n\tLocation: $2\n\tProtocol: $3\n\tInterfaces: $4\n}'
+  'Interface':
+    'prefix': 'interface'
+    'body': 'interface ${1:interfaceName} {\n\tRequestResponse: $2\n\tOneWay: $3\n}'
+  'main':
+    'prefix': 'main'
+    'body': 'main {\n\t$0 \n}'
+  'init':
+    'prefix': 'init'
+    'body': 'init {\n\t$0 \n}'
+  'constants':
+    'prefix': 'const'
+    'body': 'constants {\n\t${1:constant} = ${2:value}\n}'
+  'include':
+    'prefix': 'include'
+    'body': 'include "${1:file}.iol"'
+  'with':
+    'prefix': 'with'
+    'body': 'with( ${1:parent} ){\n\t.${2:child}\n}'
+  'while':
+    'prefix': 'while'
+    'body': 'while( ${1:condition} ) {\n\t$2\n}'
+  'undef':
+    'prefix': 'undef'
+    'body': 'undef( ${0:variableName} )'
+  'type (custom)':
+    'prefix': 'type'
+    'body': 'type ${1:typeName}: ${2:Type} {\n\t.${3:subNodeName}: ${4:Type}\n}'
+  'type (choice)':
+    'prefix': 'type'
+    'body': 'type ${0:typeName}: ${1:Type1} | ${2:Type2} | ${3:Type3}'
+  'type (basic)':
+    'prefix': 'type (basic)'
+    'body': 'type ${1:typeName}: ${2:basicType}'
+  'throws':
+    'prefix': 'throws'
+    'body': 'throws ${1:faultName}( ${2:faultType} )'
+  'throw':
+    'prefix': 'throw'
+    'body': 'throw( ${1:error} )'
+  'synchronized':
+    'prefix': 'synchronized'
+    'body': 'synchronized( ${1:token} ){\n\t$2\n}'
+  'spawn - parallel composition of output processes':
+    'prefix': 'spawn'
+    'body': '// N.B. the "in" clause is optional and eases
+// the retrieval of in-process local values. The local variable at\n// position i can be accessed by referring to the i-th element in\n// localVector variable. E.g., if in the spawn block process i sets\n// the value of local variable localVector.v, the value of v\n// is retrieved outside the spawn with localVector[i].v.\nspawn ( ${1:index} over ${2:integerExpression} ) ${3:in ${4:localVector}} {\n\t$5\n}'
+  'socket (localhost)':
+    'prefix': 'socket'
+    'body': 'socket://${1:localhost}:${2:portNumber}'
+  'scope':
+    'prefix': 'scope'
+    'body': 'scope( ${1:scopeName} )\n{\n\t$2\n}'
+  'RequestResponse@Service':
+    'prefix': 'requestresponse@Service'
+    'body': '${1:operationName}@${2:ServiceName}( ${3:request} )( ${4:response} )'
+  'RequestResponse':
+    'prefix': 'requestresponse'
+    'body': '${1:operationName}( ${2:request} )( ${3:response} ){\n\t$4\n}'
+  'redirects':
+    'prefix': 'redirects'
+    'body': 'Redirects: ${1:resourceName} => ${2:outputPortName}'
+  'provide-until':
+    'prefix': 'provide'
+    'body': 'provide\n\t[ inputChoice( request )( response ){\n\tbeforeResponseCode\n\t} ] {\n\t\tafterResponseCode\n\t}\nuntil\n\t[ inputChoice( request )( response ){\n\t\tbeforeResponseCode\n\t} ] {\n\t\tafterResponseCode\n\t}'
+  'print':
+    'prefix': 'print'
+    'body': 'println@Console( ${0:string} )()'
+  'OneWay (one way)':
+    'prefix': 'oneway (one way)'
+    'body': '${1:operationName}( ${3:request} )'
+  'OneWay (notification)':
+    'prefix': 'oneway (notification)'
+    'body': '${1:operationName}@${2:Service}( ${3:request} )'
+  'is_defined':
+    'prefix': 'is_defined'
+    'body': 'is_defined( ${0:variableName} )'
+  'Internal Service':
+    'prefix': 'service'
+    'body': 'service ${1:Name}\n{\n\tInterfaces: ${2:Iface1,...}\n\tmain\n\t{\n\t\t${3:}\n\t}\n}'
+  'instanceof':
+    'prefix': 'instanceof'
+    'body': 'instanceof ${0:type}'
+  'install':
+    'prefix': 'install'
+    'body': 'install( ${1:faultName} => ${2:faultCode} )'
+  'input-choice (OneWay)':
+    'prefix': 'inputChoiceOneWay'
+    'body': ' $[ {1:operationName}( ${2:request} ) ] {\n\t$3\n}'
+  'input-choice (RequestResponse)':
+    'prefix': 'inputChoiceRequestResponse'
+    'body': '[ ${1:operationName}( ${2:request} )( ${3:response} ) {\n\t${4:beforeResponseCode}\n} ] {\n\t	${5:afterResponseCode}\n}'
+  'if':
+    'prefix': 'if'
+    'body': 'if( ${1:condition} ) {\n\t$2\n}'
+  'global':
+    'prefix': 'global'
+    'body': 'global.${0:variable}'
+  'foreach element':
+    'prefix': 'foreach element'
+    'body': 'for ( ${1:element} in ${2:array} ) {\n\t$3\n}'
+  'foreach child':
+    'prefix': 'foreach'
+    'body': 'foreach ( ${1:child} : ${2:parent} ) {\n\t$3\n}'
+  'for':
+    'prefix': 'for'
+    'body': 'for ( ${1:ini}, ${2:cond}, ${3:afterthought} ) {\n\t$4\n}'
+  'execution':
+    'prefix': 'execution'
+    'body': 'execution{ ${0:single|concurrent|sequential} }'
+  'embedded':
+    'prefix': 'embedded'
+    'body': 'embedded {\n\t${1:Language}: "${2:file_path}" in ${3:PortName}\n}'
+  'else':
+    'prefix': 'el'
+    'body': 'else {\n\t$0\n}'
+  'else if':
+    'prefix': 'elsi'
+    'body': 'else if ( ${1:condition} ) {\n\t$2\n}'
+  'dynamic embedding':
+    'prefix': 'embed'
+    'body': 'embedInfo.type = "${1:Language}";\nembedInfo.filepath = "${2:file_path}";\nloadEmbeddedService@Runtime( embedInfo )( ${3:PortName}.location );'
+  'define':
+    'prefix': 'define'
+    'body': 'define ${1:procedure_name}\n{\n\t$2\n}'
+  'csets':
+    'prefix': 'csets'
+    'body': 'csets.${1:correlationVariable}'
+  'cset':
+    'prefix': 'cset'
+    'body': 'cset {\n\t${1:correlationVariable}: ${2:alias}\n}'
+  'aggregates':
+    'prefix': 'aggregates'
+    'body': 'Aggregates: ${1:outputPortName}'
