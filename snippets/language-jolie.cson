@@ -53,7 +53,7 @@
 // the retrieval of in-process local values. The local variable at\n// position i can be accessed by referring to the i-th element in\n// localVector variable. E.g., if in the spawn block process i sets\n// the value of local variable localVector.v, the value of v\n// is retrieved outside the spawn with localVector[i].v.\nspawn ( ${1:index} over ${2:integerExpression} ) ${3:in ${4:localVector}} {\n\t$5\n}'
   'socket (localhost)':
     'prefix': 'socket'
-    'body': 'socket://${1:localhost}:${2:portNumber}'
+    'body': '\"socket://${1:localhost}:${2:portNumber}\"'
   'scope':
     'prefix': 'scope'
     'body': 'scope( ${1:scopeName} )\n{\n\t$2\n}'
