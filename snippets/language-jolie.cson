@@ -57,12 +57,12 @@
   'scope':
     'prefix': 'scope'
     'body': 'scope( ${1:scopeName} )\n{\n\t$2\n}'
-  'RequestResponse@Service':
-    'prefix': 'requestresponse@Service'
-    'body': '${1:operationName}@${2:ServiceName}( ${3:request} )( ${4:response} )'
-  'RequestResponse':
-    'prefix': 'requestresponse'
-    'body': '${1:operationName}( ${2:request} )( ${3:response} ){\n\t$4\n}'
+  'receive (one way)':
+    'prefix': 'receive (one way)'
+    'body': '${1:operation}( ${2:request} )'
+  'receive (request-response)':
+    'prefix': 'receive (request-response)'
+    'body': '${1:operation}( ${2:request} )( ${3:response} ){\n\t${4:body}\n}'
   'redirects':
     'prefix': 'redirects'
     'body': 'Redirects: ${1:resourceName} => ${2:outputPortName}'
@@ -72,18 +72,18 @@
   'print':
     'prefix': 'print'
     'body': 'println@Console( ${0:string} )()'
-  'OneWay (one way)':
-    'prefix': 'oneway (one way)'
-    'body': '${1:operationName}( ${3:request} )'
-  'OneWay (notification)':
-    'prefix': 'oneway (notification)'
-    'body': '${1:operationName}@${2:Service}( ${3:request} )'
+  'send (one way)':
+    'prefix': 'send (one way)'
+    'body': '${1:operation}@${2:OutputPort}( ${3:request} )'
+  'send (request-response)':
+    'prefix': 'send (request-response)'
+    'body': '${1:operation}@${2:OutputPort}( ${3:request} )( ${4:response} )'
   'is_defined':
     'prefix': 'is_defined'
     'body': 'is_defined( ${0:variableName} )'
   'Internal Service':
     'prefix': 'service'
-    'body': 'service ${1:Name}\n{\n\tInterfaces: ${2:Iface1,...}\n\tmain\n\t{\n\t\t${3:}\n\t}\n}'
+    'body': 'service ${1:Name}\n{\n\tInterfaces: ${2:Iface1,...}\n\tmain\n\t{\n\t\t${3:code}\n\t}\n}'
   'instanceof':
     'prefix': 'instanceof'
     'body': 'instanceof ${0:type}'
