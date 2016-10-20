@@ -1,13 +1,13 @@
 '.source.jolie':
   'outputPort':
     'prefix': 'outputPort'
-    'body': 'outputPort ${1:portName} {\n\tLocation: $2\n\tProtocol: $3\n\tInterfaces: $4\n}'
+    'body': 'outputPort ${1:PortName} {\nLocation: $2\nProtocol: $3\nInterfaces: $4\n}'
   'inputPort':
     'prefix': 'inputPort'
-    'body': 'inputPort ${1:PortName} {\n\tLocation: $2\n\tProtocol: $3\n\tInterfaces: $4\n}'
+    'body': 'inputPort ${1:PortName} {\nLocation: $2\nProtocol: $3\nInterfaces: $4\n}'
   'Interface':
     'prefix': 'interface'
-    'body': 'interface ${1:interfaceName} {\n\tRequestResponse: $2\n\tOneWay: $3\n}'
+    'body': 'interface ${1:interfaceName} {\nRequestResponse: $2\nOneWay: $3\n}'
   'main':
     'prefix': 'main'
     'body': 'main {\n\t$0 \n}'
@@ -34,7 +34,7 @@
     'body': 'type ${1:typeName}: ${2:Type} {\n\t.${3:subNodeName}: ${4:Type}\n}'
   'type (choice)':
     'prefix': 'type'
-    'body': 'type ${0:typeName}: ${1:Type1} | ${2:Type2} | ${3:Type3}'
+    'body': 'type ${0:typeName}: ${1:Type1} | ${2:Type2}'
   'type (basic)':
     'prefix': 'type (basic)'
     'body': 'type ${1:typeName}: ${2:basicType}'
