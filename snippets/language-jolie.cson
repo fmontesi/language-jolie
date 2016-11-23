@@ -10,10 +10,10 @@
     'body': 'interface ${1:interfaceName} {\nRequestResponse: $2\nOneWay: $3\n}'
   'main':
     'prefix': 'main'
-    'body': 'main {\n\t$0 \n}'
+    'body': 'main\n{\n\t$0\n}'
   'init':
     'prefix': 'init'
-    'body': 'init {\n\t$0 \n}'
+    'body': 'init\n{\n\t$0\n}'
   'constants':
     'prefix': 'const'
     'body': 'constants {\n\t${1:constant} = ${2:value}\n}'
