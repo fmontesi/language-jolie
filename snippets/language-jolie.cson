@@ -68,7 +68,7 @@
     'body': 'Redirects: ${1:resourceName} => ${2:outputPortName}'
   'provide-until':
     'prefix': 'provide'
-    'body': 'provide\n\t[ inputChoice( request )( response ){\n\tbeforeResponseCode\n\t} ] {\n\t\tafterResponseCode\n\t}\nuntil\n\t[ inputChoice( request )( response ){\n\t\tbeforeResponseCode\n\t} ] {\n\t\tafterResponseCode\n\t}'
+    'body': 'provide\n\t${1:inputChoice}\nuntil\n\t${2:inputChoice}'
   'print':
     'prefix': 'print'
     'body': 'println@Console( ${0:string} )()'
@@ -80,7 +80,7 @@
     'body': '${1:operation}@${2:OutputPort}( ${3:request} )( ${4:response} )'
   'is_defined':
     'prefix': 'is_defined'
-    'body': 'is_defined( ${0:variableName} )'
+    'body': 'is_defined( ${0:variable} )'
   'Internal Service':
     'prefix': 'service'
     'body': 'service ${1:Name}\n{\n\tInterfaces: ${2:Iface1,...}\n\tmain\n\t{\n\t\t${3:code}\n\t}\n}'
@@ -114,18 +114,20 @@
   'execution':
     'prefix': 'execution'
     'body': 'execution{ ${0:single|concurrent|sequential} }'
-  'embedded':
-    'prefix': 'embedded'
-    'body': 'embedded {\n\t${1:Language}: "${2:file_path}" in ${3:PortName}\n}'
   'else':
     'prefix': 'el'
     'body': 'else {\n\t$0\n}'
   'else if':
     'prefix': 'elsi'
     'body': 'else if ( ${1:condition} ) {\n\t$2\n}'
-  'dynamic embedding':
+  'embed (static)':
+    'prefix': 'embedded'
+    'body': 'embedded {\n\t${1:Language}: "${2:file_path}" in ${3:PortName}\n}'
+  'embed (dynamic)':
     'prefix': 'embed'
-    'body': 'embedInfo.type = "${1:Language}";\nembedInfo.filepath = "${2:file_path}";\nloadEmbeddedService@Runtime( embedInfo )( ${3:PortName}.location );'
+    'body': """
+      loadEmbeddedService@Runtime( { .type = ${1:language}, .filepath = ${2:path} } )( ${3:PortName}.location )
+    """
   'define':
     'prefix': 'define'
     'body': 'define ${1:procedure_name}\n{\n\t$2\n}'
