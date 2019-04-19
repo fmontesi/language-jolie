@@ -48,7 +48,7 @@ repository:
     }
   keywords_with_colon:
     name: "keyword.other.with_colon.jolie"
-    match: "\\b(Location|Protocol|Interfaces|Aggregates|Redirects|Jolie|JavaScript|Java|OneWay|RequestResponse)\\b\\s*:"
+    match: "\\b(location|Location|protocol|Protocol|interfaces|Interfaces|aggregates|Aggregates|redirects|Redirects|Jolie|JavaScript|Java|OneWay|RequestResponse)\\b\\s*:"
   keywords_other:
     name: "keyword.other.jolie"
     match: "\\b(constants|cH|instanceof|execution|comp|concurrent|nullProcess|single|sequential|main|init|cset|is_defined|embedded|extender|courier|forward|install|undef|include|synchronized|throws|throw)\\b"
